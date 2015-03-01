@@ -1,10 +1,9 @@
 import VM from '../lib/vm';
 import fs from 'fs';
 
-// push 10
-// push 11
-// add
-var additionExample = "01 0a 00 00 00 01 0b 00 00 00 08";
+function loadFixture(name) {
+  return fs.readFileSync(`test/fixtures/${name}.vm`);
+}
 
 describe('VM', function () {
   beforeEach(function () {
@@ -44,8 +43,14 @@ describe('VM', function () {
   });
 
   it('can execute a simple program', function () {
-    this.vm.load(additionExample);
+    this.vm.load(loadFixture('addition'));
     var result = this.vm.execute();
     expect(result.value).to.eql(21);
+  });
+
+  it('can execute a complex program', function () {
+    this.vm.load(loadFixture('factorial'));
+    var result = this.vm.execute();
+    expect(result.value).to.eql(3628800);
   });
 });
