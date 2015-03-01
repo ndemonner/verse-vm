@@ -1,0 +1,22 @@
+{
+  "name": "verse-vm",
+  "version": "0.1.0",
+  "description": "Stack-based VM for executing Verse bytecode",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "author": "Nick DeMonner",
+  "license": "Proprietary",
+  "dependencies": {
+    "binstring": "^0.2.1",
+    "lodash": "^3.3.1"
+  },
+  "devDependencies": {
+    "babel": "^4.4.5",
+    "chai": "^2.0.0",
+    "chai-change": "^1.0.0",
+    "chai-spies": "^0.5.1",
+    "mocha": "^2.1.0"
+  }
+}
