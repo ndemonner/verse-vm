@@ -1,5 +1,6 @@
 import VM from '../lib/vm';
 import fs from 'fs';
+import Benchmark from 'benchmark';
 
 function loadFixture(name) {
   return fs.readFileSync(`test/fixtures/${name}.vm`);
@@ -70,4 +71,22 @@ describe('VM', function () {
     expect(result.error).to.eql('Not enough capacity to continue execution');
     expect(fn).to.be.called;
   });
+
+  // Uncomment when you want to check for performance regression
+  //
+  // it('maintains a certain level of performance', function (done) {
+  //   this.timeout(25000);
+  //   var suite = new Benchmark.Suite;
+  //   var bytecode = loadFixture('factorial');
+  //   suite.add('Factorial', function () {
+  //     var vm = new VM;
+  //     vm.load(bytecode);
+  //     vm.execute();
+  //   })
+  //   .on('complete', function () {
+  //     expect(this['0'].hz).to.be.above(4500);
+  //     done();
+  //   })
+  //   .run({ async: true });
+  // });
 });
