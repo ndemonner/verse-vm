@@ -53,4 +53,21 @@ describe('VM', function () {
     var result = this.vm.execute();
     expect(result.value).to.eql(3628800);
   });
+
+  it('uses energy as it executes', function () {
+    this.vm.load("010a000000");
+    this.vm.state.capacity = 10;
+    var result = this.vm.execute();
+    expect(result.capacity).to.eql(9);
+  });
+
+  it('emits an error and cancels if capacity is exhausted', function () {
+    var fn = chai.spy();
+    this.vm.on('executionError', fn);
+    this.vm.load("01 0a000000 01 0b000000");
+    this.vm.state.capacity = 1;
+    var result = this.vm.execute();
+    expect(result.error).to.eql('Not enough capacity to continue execution');
+    expect(fn).to.be.called;
+  });
 });
