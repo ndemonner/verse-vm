@@ -9,10 +9,10 @@ describe('print', function () {
   });
 
   it('pops and prints the top of stack', function () {
-    var originalLog = console.log.valueOf();
-    console.log = chai.spy();
+    var originalLog = process.stdout.write.valueOf();
+    process.stdout.write = chai.spy();
     print(this.vm.state);
-    expect(console.log).to.be.called.with(255);
-    console.log = originalLog;
+    expect(process.stdout.write).to.be.called.with(255);
+    process.stdout.write = originalLog;
   });
 });
