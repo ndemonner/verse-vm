@@ -1,8 +1,8 @@
 {
   "name": "verse-vm",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Stack-based VM for executing Verse bytecode",
-  "main": "index.js",
+  "main": "lib/vm.js",
   "scripts": {
     "test": "node_modules/.bin/mocha"
   },
