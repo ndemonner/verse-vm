@@ -23,7 +23,7 @@ div | 0x0b | | 2 | Pops `V1` and `V2` and performs `V2 / V1` using integer divis
 print | 0x0c | | 1 | Pops value from stack and prints to console
 stop | 0x0d | | 0 | Halts the VM
 
-int = signed integer
+int = signed integer  
 uint = unsigned integer
 
 Each VM starts with an assignable amount of energy, and will halt if an 
