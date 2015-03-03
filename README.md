@@ -16,7 +16,7 @@ var vm = new VM;
 vm.load("010a 0000 0001 0b00 0000 0800");
 
 // Execute the bytecode
-var result = v.execute();
+var result = vm.execute();
 
 // Result is a state object of the VM, and `result.value` holds the top of the
 // stack when the execution is finished. If there is an error, `result.error` 
@@ -46,7 +46,9 @@ var assembler = new Assembler(assembly);
 var bytecode = assembler.assemble();
 
 // Now you can load the bytecode into a VM instance, as in the first example.
-  ...
+var vm = new VM;
+vm.load(bytecode);
+var result = vm.execute();
 ```
 
 ## Spec
