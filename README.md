@@ -87,4 +87,4 @@ There are 16 registers available, addressed `0x00` through `0x0f`.
 ### Addresses
 
 Address operands are two-bytes wide, giving a max instruction buffer size of
-`256 * 256 = 65,536`.
+65,536 bytes.
