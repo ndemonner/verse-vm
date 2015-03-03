@@ -14,8 +14,8 @@ pop | 0x02 | | 1 | Pops the top of the stack off
 load | 0x03 | uint (1) | 1 | Pushes value stored in register indicated by the operand
 store | 0x04 | uint (1) | 1 | Pops value and stores in register indicated by the operand
 jmp | 0x05 | uint (2) | 1 | Moves the instruction pointer to the address indicated by the operand
-jz | 0x06 | uint (2) | 1 | If op of stack is 0, performs jmp to operand
-jnz | 0x07 | uint (2) | 1 | If op of stack is not 0, performs jmp to operand
+jz | 0x06 | uint (2) | 1 | Pops `V1`. If `V1 == 0`, performs jmp to operand
+jnz | 0x07 | uint (2) | 1 | Pops `V1`. If `V1 != 0`, performs jmp to operand
 add | 0x08 | | 2 | Pops `V1` and `V2` and performs `V2 + V1`
 sub | 0x09 | | 2 | Pops `V1` and `V2` and performs `V2 - V1`
 mul | 0x0a | | 2 | Pops `V1` and `V2` and performs `V2 * V1`
